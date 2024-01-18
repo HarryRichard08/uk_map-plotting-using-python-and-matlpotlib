@@ -14,7 +14,7 @@ good_data = data[
     (data['Longitude'] >= min_long) & (data['Longitude'] <= max_long)
 ]
 
-map_pic = plt.imread(r'C:\Users\user\Downloads\Archive\map7.png')
+map_pic = plt.imread(r'map7.png')
 
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.imshow(map_pic, extent=[min_long, max_long, min_lat, max_lat])
