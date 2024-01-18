@@ -1,40 +1,20 @@
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-
-
-
 data = pd.read_csv(r'GrowLocations.csv')
-
-
-# # bounding box definition 
-
-# In[40]:
-
 
 min_long = 50.681
 max_long = 57.985
 min_lat = -10.592
 max_lat = 1.6848
 
-
-
-
-filtered_grow_df = grow_df[
-    (grow_df['Latitude'] >= latitude_min) & (grow_df['Latitude'] <= latitude_max) &
-    (grow_df['Longitude'] >= longitude_min) & (grow_df['Longitude'] <= longitude_max)
+good_data = data[
+    (data['Latitude'] >= min_lat) & (data['Latitude'] <= max_lat) &
+    (data['Longitude'] >= min_long) & (data['Longitude'] <= max_long)
 ]
 
-
-
-
-
-
-
-# bringing every thing together 
+map_pic = plt.imread(r'C:\Users\user\Downloads\Archive\map7.png')
 
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.imshow(map_pic, extent=[min_long, max_long, min_lat, max_lat])
@@ -54,14 +34,3 @@ box = Rectangle((min_long, min_lat),
 ax.add_patch(box)
 
 plt.show()
-
-
-
-
-
-
-# # github link : https://github.com/HarryRichard08/uk_map-plotting-using-python-and-matlpotlib/tree/main/proj
-
-
-
-
